@@ -1,0 +1,18 @@
+{
+  "name": "1-interactive-text-shapes",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "dependencies": {
+    "@svgdotjs/svg.draggable.js": "^3.0.2",
+    "@svgdotjs/svg.js": "^3.0.16"
+  },
+  "devDependencies": {
+  },
+  "scripts": {
+    "test": ""
+  },
+  "author": "Laurens",
+  "license": "ISC"
+}

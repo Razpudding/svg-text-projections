@@ -5,6 +5,15 @@ Some experiments around text projections for an art project
 - [Vizhub svgjs test](https://vizhub.com/Razpudding/86bd2b28c4034086a4112794a57e66f7?edit=files&file=index.html)
 - Generative SVG art?
     + Recognize words in text, generate shapes for the words (like chair ⑁) using a library, render text on the words.
+- Thijs: Would be nice if words were to form from letter flying in.
+- Thijs: Animation of words along SIMPLE paths (like squares)
+- Setups that work well with projection (set words in squares with a predefined location)
+- What is the relationship between the individual and the whole during a ritual (placement within a space)
+- Gameplay elements (arrange elements and have them influence each other)
+- Words: Life, Death, Walk, Stop, Transform, Change, Senses (smell etc.)
+- Interactive screensaver
+- Have people type in sentences, build shapes out of the sentences, place shapes in an arrangement.
+- Size, font and color should be editable
 
 ## Options for Artist
 - Create and orient texts yourself, static, 2D -> Illustrator
@@ -13,7 +22,7 @@ Some experiments around text projections for an art project
 - combine text with bitmap visuals -> VJ software
 - Overlays -> Illustrator
 - Anything interactive -> My Code
-
+- If you want to integrate a screen a lot more becomes possible. Like the words you say appearing on a projected screen behind you
 
 ## Resources
 
