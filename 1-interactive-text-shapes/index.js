@@ -25,6 +25,7 @@ drawCards(cardContents)
 function drawCards(contents){
   for (let i = 0; i< contents.length; i++){
     const group = nested.nested().draggable().x(i * 50)
+    // const group = nested.group()
     // group.translate(i * 50, 0)
     //Adding elements
     const rect = group.rect(40, 60)
@@ -48,9 +49,9 @@ function drawCards(contents){
     //Code to start later on in the path
     text.textPath().attr('startOffset', '0%')
     text.textPath().animate(3000).attr('startOffset', '-20%')  
-
-    rect.animate(1000).rotate(360)
+    // group.animate(1000).rotate(360)
   }
+  
 }
 
 // drawRects(rectangleAmount)
