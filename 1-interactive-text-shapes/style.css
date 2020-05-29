@@ -18,6 +18,6 @@ input[type=text] {
   color: #666;
 }
 
-svg g {
-  
+rect {
+	fill: #631406;
 }
