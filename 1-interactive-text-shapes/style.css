@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Inconsolata');
 
 tspan {
-	fill: #f06;
+	fill: #673AB7;
 /* 	stroke: #f06; */
 	stroke-width: 0.85;
 /*   font-family: 'Inconsolata'; */
@@ -19,5 +19,5 @@ input[type=text] {
 }
 
 rect {
-	fill: #631406;
+	fill: #c3b0e3;
 }
