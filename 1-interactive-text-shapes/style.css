@@ -1,13 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Inconsolata');
-#drawing {
-	width: 100%;
-	height: 100%;
-}
+
 tspan {
 	fill: #f06;
 /* 	stroke: #f06; */
 	stroke-width: 0.85;
-
 /*   font-family: 'Inconsolata'; */
 }
 
