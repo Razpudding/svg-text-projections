@@ -1,7 +1,7 @@
 //SVG Elements
 const input = document.querySelector('input[type=text]')
 const draw = SVG().addTo('#drawing').viewbox(0, 0, 300, 300)
-const nested = draw.nested()
+const container = draw.nested()
 
 //Settings
 const textSize = 3.5
@@ -19,18 +19,21 @@ const cardContents = [
   },
   {
     word: `Illustration`,
-    text: `From the early 1800s newspapers, mass-market magazines, and illustrated books had become the dominant consumer media in Europe and the New World. By the 19th century, improvements in printing technology freed illustrators to experiment with color and rendering techniques. `,
+    text: `From the early 1800s newspapers, mass-market magazines, and illustrated books had become the dominant consumer media in Europe and the New World. By the 19th century, improvements in printing technology freed illustrators to experiment with color and rendering techniques. hese developments in printing effected all areas of literature from cookbooks, photography and travel guides, as well as children's books. Also, due to advances in printing it became more affordable to produce color photographs within books and other materials`,
     position: {x: 150, y: 40}
   },
 ]
 
-drawCards(cardContents)
-function drawCards(contents){
+const cardsContainer = drawCards(cardContents, container)
+// TODO: Can't seem to rotate nested yet
+container.animate(1000).transform({rotate: 125 })
+// container.transform({rotate: 125 })
+function drawCards(contents, container){
   contents.forEach( (card, i) => {
     //Create a nested element for positioning
-    let group = nested.nested().draggable().attr(card.position)
+    const nested = container.nested().draggable().attr(card.position)
     //Add a group to the nested element that holds all card elements for animation
-    group = group.group()
+    const group = nested.group()
 
     //Adding elements
     const rect = group.rect(40, 60)
@@ -51,12 +54,19 @@ function drawCards(contents){
     const customTextPath = text.path(customPath).font({ size: textSize, family: 'Verdana' })
     const photographyTextPath = word.path(photographyPos).font({ size: textSize, family: 'Verdana' })
     
-    //Code to start later on in the path
-    text.textPath().attr('startOffset', '0%')
-    text.textPath().animate(3000).attr('startOffset', '-20%')  
-    group.animate(1000).rotate(360)
-    // group.animate().attr({ fill: '#f03' })
+    //Code animate text position on path. Giving the effect of text being typed out
+    text.textPath().attr('startOffset', '-550%')
+    text.textPath().animate(3000).attr('startOffset', '-350%')  
+    
+    //Animate moving the center of the nested group
+    // nested.animate().center(40, 40)
+    
+    //Animate rotating the group
+    // group.animate(1000).rotate(360)
+    
+    // text.textPath().animate().attr({ fill: '#FFFFFF' })
   })  
+  return container
 }
 
 // drawRects(rectangleAmount)

@@ -22,7 +22,8 @@ rect {
 	fill: #c3b0e3;
 }
 
-svg svg .rotate {
+/*Doesn't seem to work*/
+/*svg .rotate {
   animation: rotate 5s linear infinite;
   transform-box: fill-box;
   transform-origin: center;
@@ -31,4 +32,4 @@ svg svg .rotate {
 @keyframes rotate {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
-}
+}*/

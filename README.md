@@ -1,6 +1,14 @@
 # svg-text-projections
 Some experiments around text projections for an art project
 
+## Vision
+- Each card will represent an artistic discipine
+- A card will have rectangular shape made out of text describing the discipline
+- A card will have a central word signifing the discipline
+- A random element added to the work would be nice, like text added to the middle randomly composed of words in the description texts
+- Cards should be oriented in an overarching structure
+- It would be great if the camera was zoomed in on the top of the circle and cards flew by as their descriptions shaped the rectangles. Then the animation zooms out to reveal the superstructure
+
 ## Experiments
 - [Vizhub svgjs test](https://vizhub.com/Razpudding/86bd2b28c4034086a4112794a57e66f7?edit=files&file=index.html)
 - Generative SVG art?
