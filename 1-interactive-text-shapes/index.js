@@ -8,32 +8,52 @@ const textSize = 3.5
 const rectangleAmount = 10
 const cardContents = [
   {
-    word: `Photography`,
-    text: `I would like to discuss here some elements that I think contribute to the value of many works of visual art, particularly photographs. This is not meant to imply or show that these are the only elements of value nor that they will apply to all art, to all visual art, or even to all photographs, because I think some artists have or could have other ideals and other quests, and because creative artistic ideas could always be thought of that would not fit my perhaps narrow ideas.`,
-    position: {x: 10, y: 40}
+    word: `Body`,
+    text: `I am being exploited. What does it mean to have a body? Who owns my hands, my feet? What does it mean; a body on the street? What is a protest? How many bodies can fill a square? What language does your body speak?`,
+    transform: { 
+      translate: {x:10, y: 20},
+      origin: [30, 70],
+      rotate: -20,
+    }
   },
   {
-    word: `Philosophy`,
-    text: `The regions of the fertile Crescent, Iran and Arabia are home to the earliest known philosophical Wisdom literature and is today mostly dominated by Islamic culture. Early wisdom literature from the fertile crescent was a genre which sought to instruct people on ethical action, practical living and virtue through stories and proverbs. In Ancient Egypt, these texts were known as sebayt ('teachings') and they are central to our understandings of Ancient Egyptian philosophy.`,
-    position: {x: 80, y: 0}
+    word: `Audience`,
+    text: `I am watching. What does it mean to watch? Am I just an eyeball? A Passive passenger watching history as it unfolds? Am I responsible for what I see? Can I become part of an activated audience? Actor and observer at the same time? What does an invitation look like?`,
+    position: {x: 80, y: 0},
+    transform: { 
+      translate: {x:80, y: 0},
+      rotate: 0
+    }
   },
   {
-    word: `Illustration`,
-    text: `From the early 1800s newspapers, mass-market magazines, and illustrated books had become the dominant consumer media in Europe and the New World. By the 19th century, improvements in printing technology freed illustrators to experiment with color and rendering techniques. hese developments in printing effected all areas of literature from cookbooks, photography and travel guides, as well as children's books. Also, due to advances in printing it became more affordable to produce color photographs within books and other materials`,
-    position: {x: 150, y: 40}
+    word: `Precarity`,
+    text: `I am living in precariousness. What does it mean to live in precarious conditions?To not have a seat at the table? To lack the words, symbols, images for a real conversation? What does it mean to have no voice? What does it mean to not be heard?`,
+    position: {x: 150, y: 40},
+    transform: { 
+      translate: {x:150, y: 20},
+      origin: [30, 70],
+      rotate: 20
+    }
   },
 ]
 
 const cardsContainer = drawCards(cardContents, container)
-// TODO: Can't seem to rotate nested yet
 container.animate(1000).transform({rotate: 125 })
 // container.transform({rotate: 125 })
 function drawCards(contents, container){
   contents.forEach( (card, i) => {
-    //Create a nested element for positioning
-    const nested = container.nested().draggable().attr(card.position)
-    //Add a group to the nested element that holds all card elements for animation
-    const group = nested.group()
+
+    function nest(){
+      //Create a nested element for positioning
+      const nested = container.nested().draggable()
+      nested.attr(card.position)
+      //Add a group to the nested element that holds all card elements for animation
+      const group = nested.group()
+      group.transform(card.transform)
+    }
+    
+    const group = container.group()
+    console.log(group.transform(card.transform))
 
     //Adding elements
     const rect = group.rect(40, 60)
@@ -55,8 +75,8 @@ function drawCards(contents, container){
     const photographyTextPath = word.path(photographyPos).font({ size: textSize, family: 'Verdana' })
     
     //Code animate text position on path. Giving the effect of text being typed out
-    text.textPath().attr('startOffset', '-550%')
-    text.textPath().animate(3000).attr('startOffset', '-350%')  
+    text.textPath().attr('startOffset', '-250%')
+    text.textPath().animate(6000).attr('startOffset', '0%')  
     
     //Animate moving the center of the nested group
     // nested.animate().center(40, 40)

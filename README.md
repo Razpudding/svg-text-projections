@@ -9,6 +9,12 @@ Some experiments around text projections for an art project
 - Cards should be oriented in an overarching structure
 - It would be great if the camera was zoomed in on the top of the circle and cards flew by as their descriptions shaped the rectangles. Then the animation zooms out to reveal the superstructure
 
+### Choreohraphy
+- First there is just a text, an invitation
+- The text dissapears and parts of the text start to create rectangular shapes (cards)
+- Each card represents an element (discipline/term/question)
+
+
 ## Experiments
 - [Vizhub svgjs test](https://vizhub.com/Razpudding/86bd2b28c4034086a4112794a57e66f7?edit=files&file=index.html)
 - Generative SVG art?
@@ -59,3 +65,4 @@ Some experiments around text projections for an art project
 - [snap](http://snapsvg.io/)
 - [svg-editing-tools](https://css-tricks.com/tools-visualize-edit-svg-paths-kinda/)
 - [scaling-svg](https://css-tricks.com/scale-svg/)
+- [positioning-svg](https://www.sarasoueidan.com/blog/nesting-svgs/)
