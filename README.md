@@ -1,6 +1,13 @@
 # svg-text-projections
 Some experiments around text projections for an art project
 
+## Notes
+- Use color from words in email, these words are central
+- Start with a question, generate 10 random words (separate exp)
+- Complete the shape, without animation. All words in all rectangles, then select random words for center
+- Play with selection of sentences versus words, versus meaningful words
+- Poetry in the center of the constellation is the key to the whole thing
+
 ## Vision
 - Each card will represent an artistic discipine
 - A card will have rectangular shape made out of text describing the discipline

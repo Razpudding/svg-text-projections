@@ -1,7 +1,8 @@
 //SVG Elements
 const input = document.querySelector('input[type=text]')
 const draw = SVG().addTo('#drawing').viewbox(0, 0, 300, 300)
-const container = draw.nested()
+const container = draw.group()
+// mocontainer.transform({origin: [100, 420]})
 
 //Settings
 const textSize = 3.5
@@ -37,8 +38,24 @@ const cardContents = [
   },
 ]
 
+let randomlySelectedText = ''
+const randomTextLength = 20
+let totalWords = []
+totalWords = totalWords.concat(cardContents.map(card => card.text.split(" ")))
+console.log(totalWords)
+for (let i = 0; i < randomTextLength; i ++){
+  randomlySelectedText += " " + totalWords[Math.floor(Math.random() * 2)][Math.floor(Math.random()* 30)]
+  // totalWords = totalWords.split(" ")
+  console.log(randomlySelectedText)
+  //Passive I I body? body? hands, my is exploited. my is Who being history I Am What Passive passenger A
+}
+
 const cardsContainer = drawCards(cardContents, container)
-container.animate(1000).transform({rotate: 125 })
+// container.animate({
+//   delay: 4000,
+//   duration: 12000
+// }).rotate(360)
+// container.animate(1000).transform({rotate: 125 })
 // container.transform({rotate: 125 })
 function drawCards(contents, container){
   contents.forEach( (card, i) => {
@@ -75,17 +92,22 @@ function drawCards(contents, container){
     const photographyTextPath = word.path(photographyPos).font({ size: textSize, family: 'Verdana' })
     
     //Code animate text position on path. Giving the effect of text being typed out
-    text.textPath().attr('startOffset', '-250%')
-    text.textPath().animate(6000).attr('startOffset', '0%')  
+    text.textPath().attr('startOffset', '150%')
+    text.textPath().animate({
+      duration: 16000,
+      delay: 1000 * i
+    }).attr('startOffset', '-100%')  
     
     //Animate moving the center of the nested group
-    // nested.animate().center(40, 40)
+    // group.animate().transform({relative:{x:10, y: 20}})
     
     //Animate rotating the group
     // group.animate(1000).rotate(360)
     
+    
     // text.textPath().animate().attr({ fill: '#FFFFFF' })
   })  
+
   return container
 }
 
