@@ -28,7 +28,7 @@ const cardContents = [
   },
   {
     word: `Precarity`,
-    text: `I am living in precariousness. What does it mean to live in precarious conditions?To not have a seat at the table? To lack the words, symbols, images for a real conversation? What does it mean to have no voice? What does it mean to not be heard?`,
+    text: `I am living in precariousness. What does it mean to live in precarious conditions? To not have a seat at the table? To lack the words, symbols, images for a real conversation? What does it mean to have no voice? What does it mean to not be heard?`,
     position: {x: 150, y: 40},
     transform: { 
       translate: {x:150, y: 20},
