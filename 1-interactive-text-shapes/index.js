@@ -51,10 +51,10 @@ for (let i = 0; i < randomTextLength; i ++){
 }
 
 const cardsContainer = drawCards(cardContents, container)
-// container.animate({
-//   delay: 4000,
-//   duration: 12000
-// }).rotate(360)
+container.animate({
+  delay: 4000,
+  duration: 12000
+}).rotate(360)
 // container.animate(1000).transform({rotate: 125 })
 // container.transform({rotate: 125 })
 function drawCards(contents, container){

@@ -1,5 +1,7 @@
 # Generative Text
 
+[Live example](https://vizhub.com/Razpudding/191ba488b4544201b93fbb6eaade2c84)
+
 ## Plan
 
 - Have artist create a taxonomy of meaning for the words used in his texts
