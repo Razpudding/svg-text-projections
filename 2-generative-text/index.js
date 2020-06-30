@@ -1,57 +1,51 @@
 const sentenceLengthEl = d3.select('#sentenceLength')
 let sentenceLength = sentenceLengthEl.property("value")
-const levelSettingEl = d3.select('#levelSetting')
-let levelSetting = Number(levelSettingEl.property("value"))
 
-let data
-let words
+let words = {}
 let columns
 const iterations = 20
 
 sentenceLengthEl.on('change', lengthChanged)
-levelSettingEl.on('change', levelChanged)
 
 main()
 
 async function main(){
-  data = await d3.csv('taxonomie_2.csv')
+  await d3.csv('taxonomie_0.csv', parseRow)
+  console.log("word Data", words)
+  //words = cleanData(data)
   
-  words = cleanData(data)
-  console.log("word Data", data)
-
-  columns = []
-  words.forEach(word => {
-    columns = columns.concat(word.dimensions)
-  })
-  columns = [...new Set(columns)]
+  columns = Object.keys(words)
   console.log("columns", columns)
 
   setupInputs(columns, sentenceLength)
   selectionChanged()
 }
 
-function cleanData(data){
-  // console.log("parsing data", data)
-  return data.map(item => {
-    return {
-      word: item.woord,
-      //Check if a dimension equals 1 (main meaning of the word is indicated with 1)
-      dimensions: Object.keys(item).filter(dimension => {
-        return item[dimension] <= levelSetting && dimension !== "woord" && item[dimension] != ''
-      })
+function parseRow(row){
+  // console.log(row)
+  for (let column in row){
+    if (row[column] == ""){
+      continue
     }
-  })
+    if (!words[column]) {
+      words[column] = []
+    }
+    words[column].push(row[column])
+  }
 }
 
 function generateText(words, pattern, length){
-  //console.log("generating", pattern)
+  console.log("generating", pattern)
   let text = ''
+  let sentenceEnd = pattern.includes("questions") ? "?" : "."
 
   // random selective
   for (let i of pattern){
-    let candidates = words.filter(word => word.dimensions.includes(i))
-    text += candidates[Math.floor(Math.random() * candidates.length)].word + " "
+    let candidates = words[i]
+    // console.log(candidates)
+    text += candidates[Math.floor(Math.random() * candidates.length)] + " "
   }
+  text = text.replace(/.$/, sentenceEnd)
   
   // // first selective
   // for (let i of pattern){
@@ -100,13 +94,6 @@ function selectionChanged(){
 
 function lengthChanged(){
   sentenceLength = sentenceLengthEl.property("value")
-  setupInputs(columns, sentenceLength)
-  selectionChanged()
-}
-
-function levelChanged(){
-  levelSetting = levelSettingEl.property("value")
-  words = cleanData(data)
   setupInputs(columns, sentenceLength)
   selectionChanged()
 }
