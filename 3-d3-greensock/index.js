@@ -90,6 +90,10 @@ function drawRect(card, parent, id){
   rectPath.rect(0,0, rectWidth, rectHeight)
   
   //Draw the path
+  //TODO: Can't seem to get the rotation to work the way I want. The current setup overwrites
+  // the original translation so the positioning is of but it does rotate around the right point.
+  // The other version doesnt rotate right but the positioning works
+  // It looks like the rotation is perfomred before the translation
   const path = parent.append('path')
   path
     .attr('d',rectPath)
@@ -98,7 +102,6 @@ function drawRect(card, parent, id){
           'translate('
           +(chairOriginX - (rectWidth / 2))+','
           +(chairOriginY - rectHeight)+')')
-    // .attr("transform", "rotate("+45+","+originX+","+originY+")")
     .attr('fill','none')
     .attr('stroke','#fff')
   path
