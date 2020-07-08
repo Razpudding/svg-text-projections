@@ -8,3 +8,6 @@ Ok, so I've struggled a lot with svg.js and now I want to try a different approa
 - Use d3 to dynamically generate rectangles at certain positions
 - Use d3 to bind data (texts) to the svg elements
 - Use Greensock to animate the whole lot
+I'll do all of this in vizhub and dump code here from time to time as a back up. Doing it on Vizhub instead of codepen has the added benefit I'll auto find out if I'm sing any premium features. Codepen has those built in, vizhub doesn't.
+
+[Link to basic setup](https://vizhub.com/Razpudding/2e2ed0da09f1427696e53734e901bf47?edit=files&file=index.js)
