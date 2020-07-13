@@ -37,7 +37,7 @@ const cardContents = [
 ]
 const originX = containerWidth/ 2;
 const originY = containerHeight/ 2;
-const circleRadius = 65;
+const circleRadius = 165;
 const chairOriginX = originX + (circleRadius * Math.sin(0))
 const chairOriginY = originY - (circleRadius * Math.cos(0))
 const chairWidth = 20
@@ -89,11 +89,7 @@ function drawRect(card, parent, id){
   const rectPath = d3.path()
   rectPath.rect(0,0, rectWidth, rectHeight)
   
-  //Draw the path
-  //TODO: Can't seem to get the rotation to work the way I want. The current setup overwrites
-  // the original translation so the positioning is of but it does rotate around the right point.
-  // The other version doesnt rotate right but the positioning works
-  // It looks like the rotation is perfomred before the translation
+  //Append the path
   const path = parent.append('path')
   path
     .attr('d',rectPath)
@@ -104,21 +100,12 @@ function drawRect(card, parent, id){
           +(chairOriginY - rectHeight)+')')
     .attr('fill','none')
     .attr('stroke','#fff')
+
   path
-    .attr("transform", 'rotate('+10 * id+','+ originX +','+ originY +')')
-  
-  // parent
-  //   .append('path')
-  //  .attr('d',rectPath)
-  //   .attr('id', 'master' + id)
-  //  .attr("transform", 
-  //         'translate('
-  //         +(chairOriginX - (rectWidth / 2))+','
-  //         +(chairOriginY - rectHeight)+')'
-  //         +'rotate('+10 * id+','+ originX +','+ originY +')')
-  //   // .attr("transform", "rotate("+45+","+originX+","+originY+")")
-  //   .attr('fill','none')
-  //   .attr('stroke','#fff')
+    .attr("transform", 
+          `rotate( ${45 * id} , ${originX} , ${originY} ) `+
+          `translate( ${(chairOriginX - (rectWidth / 2))} , ${(chairOriginY - rectHeight)} )`)
+
   //Append the text using an href link
   parent
     .append('text')
@@ -129,4 +116,3 @@ function drawRect(card, parent, id){
       .attr('href', '#master' + id)
       // .attr('startOffset', '0%')
       .text(card.text)
-}
