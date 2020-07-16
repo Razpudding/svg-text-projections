@@ -1,6 +1,7 @@
 # Generative Text
 
-[Live example](https://vizhub.com/Razpudding/191ba488b4544201b93fbb6eaade2c84)
+[First attempt - live link](https://vizhub.com/Razpudding/191ba488b4544201b93fbb6eaade2c84)
+[Working prototype - live link](https://vizhub.com/Razpudding/3769e8974c3b4abcae1e5a26d94735f4)
 
 ## TODO
 

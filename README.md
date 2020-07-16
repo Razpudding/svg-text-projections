@@ -1,12 +1,15 @@
 # svg-text-projections
 Some experiments around text projections for an art project
 
+![Image of experiment 3](https://github.com/Razpudding/svg-text-projections/images/exp3.png)
+
 ## Notes
 - Use color from words in email, these words are central
 - Start with a question, generate 10 random words (separate exp)
 - Complete the shape, without animation. All words in all rectangles, then select random words for center
 - Play with selection of sentences versus words, versus meaningful words
 - Poetry in the center of the constellation is the key to the whole thing
+- What is the relationship between the individual and the whole during a ritual (placement within a space)
 
 ## Vision
 - Each card will represent an artistic discipine
@@ -21,20 +24,12 @@ Some experiments around text projections for an art project
 - The text dissapears and parts of the text start to create rectangular shapes (cards)
 - Each card represents an element (discipline/term/question)
 
-
 ## Experiments
 - [Vizhub svgjs test](https://vizhub.com/Razpudding/86bd2b28c4034086a4112794a57e66f7?edit=files&file=index.html)
-- Generative SVG art?
-    + Recognize words in text, generate shapes for the words (like chair ⑁) using a library, render text on the words.
-- Thijs: Would be nice if words were to form from letter flying in.
-- Thijs: Animation of words along SIMPLE paths (like squares)
-- Setups that work well with projection (set words in squares with a predefined location)
-- What is the relationship between the individual and the whole during a ritual (placement within a space)
-- Gameplay elements (arrange elements and have them influence each other)
-- Words: Life, Death, Walk, Stop, Transform, Change, Senses (smell etc.)
-- Interactive screensaver
-- Have people type in sentences, build shapes out of the sentences, place shapes in an arrangement.
-- Size, font and color should be editable
+- [Experiment 0 - text along path](https://github.com/Razpudding/svg-text-projections/tree/master/0-text-along-path)
+- [Experiment 1 - interactive text shapes](https://github.com/Razpudding/svg-text-projections/tree/master/1-interactive-text-shapes)
+- [Experiment 2 - generative text](https://github.com/Razpudding/svg-text-projections/tree/master/2-generative-text) - [Live link](https://vizhub.com/Razpudding/3769e8974c3b4abcae1e5a26d94735f4)
+- [Experiment 3 - d3+greensock](https://github.com/Razpudding/svg-text-projections/tree/master/3-d3-greensock) - [Live link](https://vizhub.com/Razpudding/ac3f7015fe914b4c9d4b3bc8f4b16922?edit=files&file=index.js)
 
 ## Options for Artist
 - Create and orient texts yourself, static, 2D -> Illustrator
