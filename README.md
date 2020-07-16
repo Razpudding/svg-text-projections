@@ -1,7 +1,7 @@
 # svg-text-projections
 Some experiments around text projections for an art project
 
-![Image of experiment 3](https://github.com/Razpudding/svg-text-projections/images/exp3.png)
+![Image of experiment 3](https://github.com/Razpudding/svg-text-projections/blob/master/images/exp3.png)
 
 ## Notes
 - Use color from words in email, these words are central
