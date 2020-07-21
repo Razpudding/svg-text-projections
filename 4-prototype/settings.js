@@ -1,12 +1,10 @@
 export const settings = {
-  duration: 1,
-	cardWidth: 140,
-	cardHeight: 80,
+  duration: 2,
+  cardWidth: 140,
+  cardHeight: 80,
   circleRadius: 140,
-  centerText: "I think it's time we talked",
+  centerText: "Now, it's time, to die.",
 }
-
-
 
 export const cardContents = [
   {
@@ -28,7 +26,7 @@ export const cardContents = [
   },
   {
     word: `Precarity`,
-    text: `I am living in precariousness. What does it mean to live in precarious conditions? To not have a seat at the table? To lack the words, symbols, images for a real conversation? What does it mean to have no voice? What does it mean to not be heard?`,
+    text: `I am living in precariousness. What does it mean to live in precarious conditions? To not have a seat at the table? To lack the words, symbols, images for a real conversation? What does it mean to have no voice? What does it mean to not be heard? it mean to not be heard?`,
     transform: { 
       translate: [550, 50],
       origin: [30, 70],
@@ -37,7 +35,7 @@ export const cardContents = [
   },
   {
     word: `Precarity`,
-    text: `I am living in precariousness. What does it mean to live in precarious conditions? To not have a seat at the table? To lack the words, symbols, images for a real conversation? What does it mean to have no voice? What does it mean to not be heard?`,
+    text: `I am living in precariousness. What does it mean to live in precarious conditions? To not have a seat at the table? To lack the words, symbols, images for a real conversation? What does it mean to have no voice? What does it mean to not be heard? it mean to not be heard?`,
     transform: { 
       translate: [550, 50],
       origin: [30, 70],
@@ -46,11 +44,12 @@ export const cardContents = [
   },
     {
     word: `Precarity`,
-    text: `I am living in precariousness. What does it mean to live in precarious conditions? To not have a seat at the table? To lack the words, symbols, images for a real conversation? What does it mean to have no voice? What does it mean to not be heard?`,
+    text: `I am living in precariousness. What does it mean to live in precarious conditions? To not have a seat at the table? To lack the words, symbols, images for a real conversation? What does it mean to have no voice? What does it mean to not be heard? it mean to not be heard?`,
     transform: { 
       translate: [550, 50],
       origin: [30, 70],
       rotate: 20
     }
   },
+
 ]

@@ -1,6 +1,6 @@
-// TODO: Get rid of remaining magic numbers
 import {settings as S} from './settings.js'
 import {cardContents} from './settings.js'
+import {loadData, generateText} from './textGenerator.js'
 
 const container = d3.select("#container")
 const cardsContainer = container.append('g')
@@ -9,32 +9,42 @@ const containerWidth = parseInt(container.style("width"), 10)
 const containerHeight = parseInt(container.style("height"), 10)
 
 //Positioning logic
-const originX = containerWidth/ 2;
-const originY = containerHeight/ 2;
+const originX = containerWidth/ 2
+const originY = containerHeight/ 2
 const chairOriginX = originX + (S.circleRadius * Math.sin(0))
 const chairOriginY = originY - (S.circleRadius * Math.cos(0))
 
-const circle = drawCircle()
-drawCards(cardContents, cardsContainer)
-drawText(container)
-animate()
+main()
+async function main(){
+  drawCards(cardContents, cardsContainer)
+  drawText(container)
+  animate()
+  
+  const wordData = await loadData('taxonomy_0.csv')
+  reformulate(wordData)
+}
+
+//Takes wordData and starts a loop that rewrites the center text
+function reformulate(words){
+  const pattern = ["questions","sexuality","issues", "identity"]
+  
+  repeat()
+  //A recursive function that uses d3 to rewrite the center text
+  //It was soooo much easier with d3 than with GSAP
+  function repeat(){
+    d3.select('.center-text')
+      .style('opacity', 0)
+      .transition()
+        .duration(3000 * S.duration)
+        .style('opacity', 1)
+        .text(generateText(words, pattern))
+        .on('end', repeat)
+  }
+}
 
 //This animates the text along the given path
 function animate(){
-  const tl = gsap.timeline();
-  const elements = document.querySelectorAll(".card") 
-  
-  //This will stagger all cards and then show all texts
-  // tl.add('card')
-  // tl.add(gsap.from(".masterTextPath", {
-  //   attr: { startOffset: "100%"},
-  //   ease: Power1.easeInOut,
-  //   stagger: 1
-  // }, 'card')
-  // ).to('.cardTitle', S.duration, {
-  //   opacity: 1,
-  // })
-  
+  const tl = gsap.timeline()  
   //This will stagger all cards and titles separately
   const textPathAnim = gsap.from('.masterTextPath', S.duration,{
     attr: { startOffset: "110%"},
@@ -47,29 +57,14 @@ function animate(){
   })
   //By adding multiple tweens in an array, they are started concurrently
   tl.add([textPathAnim, cardTitleAnim])
-  
-  //This loops over an array and animates each element individually
-  // elements.forEach( (el, i) => {
-  //   // console.log(el)
-  //   let test = 
-  //   gsap.from(el, S.duration, {
-  //     attr: { startOffset: "100%"},
-  //     ease: Power1.easeInOut,
-  //   })
-  //   gsap.to('.cardTitle', S.duration, {
-  //    opacity: 1,
-  //   })
-  //   tl.add(test)
-  // })
-  tl.add(gsap.to('#invitation', S.duration, {
-    opacity: 1,
-  })
-  ).to("#cardsContainer", 10, {
-    // transformOrigin: `${originX}px ${originY}px`,
-    transformOrigin: '50% 50%',
-    rotation: 360,
-    ease:Linear.easeNone
-  })
+    .add(gsap.to('#invitation', S.duration, {
+      opacity: 1,
+    }))
+    .to("#cardsContainer", 10, {
+      transformOrigin: '50% 50%',
+      rotation: 360,
+      ease:Linear.easeNone
+    })
   console.log(tl)
 }
 
@@ -123,18 +118,9 @@ function drawRect(card, target, id){
     .text(card.word) 
 }
 
-function drawCircle(){
-  return container
-  .append("circle")
-    .attr('cx', originX)
-    .attr('cy', originY)
-    .attr('r', S.circleRadius)
-    .attr('fill', 'none')
-    .attr('stroke', "none")
-}
-
 function drawText(target){
   target.append('text')
+    .attr('class','center-text')
     .text(S.centerText)
     .attr('id', 'invitation')
     .attr('x', containerWidth /2)
