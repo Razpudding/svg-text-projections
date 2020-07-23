@@ -1,3 +1,4 @@
+//TODO: Remove side effect, global var 'words'
 import { csv } from 'd3'
 
 let sentenceLength = 4
@@ -6,18 +7,21 @@ let columns
 const iterations = 20
 
 export async function loadData(url){
+  console.log(url)
+
   await d3.csv(url, parseRow)
   console.log("word Data", words)
   
   columns = Object.keys(words)
   console.log("columns", columns)
+  return words
 }
 
 function parseRow(row){
- 	// console.log(row)
+  // console.log(row)
   for (let column in row){
     if (row[column] == ""){
-    	continue
+      continue
     }
     if (!words[column]) {
       words[column] = []
@@ -26,10 +30,10 @@ function parseRow(row){
   }
 }
 
-export function generateText(words, pattern, length){
+export function generateText(words, pattern){
   console.log("generating", pattern)
   let text = ''
-	let sentenceEnd = pattern.includes("questions") ? "?" : "."
+  let sentenceEnd = pattern.includes("questions") ? "?" : "."
 
   // random selective
   for (let i of pattern){
@@ -38,6 +42,5 @@ export function generateText(words, pattern, length){
     text += candidates[Math.floor(Math.random() * candidates.length)] + " "
   }
   text = text.replace(/.$/, sentenceEnd)
-  
   return text
 }

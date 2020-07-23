@@ -1,5 +1,4 @@
 import {settings as S} from './settings.js'
-import {cardContents} from './settings.js'
 import {loadData, generateText} from './textGenerator.js'
 
 const container = d3.select("#container")
@@ -16,17 +15,16 @@ const chairOriginY = originY - (S.circleRadius * Math.cos(0))
 
 main()
 async function main(){
-  drawCards(cardContents, cardsContainer)
+  const wordData = await loadData('taxonomy_0.csv')
+  drawCards(wordData, cardsContainer)
   drawText(container)
   animate()
-  
-  const wordData = await loadData('taxonomy_0.csv')
   reformulate(wordData)
 }
 
 //Takes wordData and starts a loop that rewrites the center text
 function reformulate(words){
-  const pattern = ["questions","sexuality","issues", "identity"]
+  const pattern = ["questions","sexuality","issues"]
   
   repeat()
   //A recursive function that uses d3 to rewrite the center text
@@ -69,14 +67,19 @@ function animate(){
 }
 
 function drawCards(contents, container){
-  contents.forEach( (card, i) => {
-    drawRect(card, container, i)
-  })
+  let cardsDrawn = 0
+  for (let i in contents){
+    if (cardsDrawn >= S.numberOfCards){
+      break
+    }
+    drawRect(i, contents[i], container, cardsDrawn)
+    cardsDrawn ++
+  }
 }
 
 //This function adds a path to our svg that we'll later use to animate text along
 // It takes card data, a parent element and a unique id
-function drawRect(card, target, id){
+function drawRect(cardName, cardText, target, id){
   parent = target.append('g')
   parent.attr('class', 'card')
   console.log(parent)
@@ -95,7 +98,7 @@ function drawRect(card, target, id){
   //Rotate the card in relation to the circles center point
   parent
     .attr("transform", 
-          `rotate( ${(360 /cardContents.length) * id} , ${originX} , ${originY} ) `+
+          `rotate( ${(360 /S.numberOfCards) * id} , ${originX} , ${originY} ) `+
           `translate( ${(chairOriginX - (S.cardWidth / 2))} , ${(chairOriginY - S.cardHeight)} )`)
 
   //Append the text using an href link
@@ -106,8 +109,8 @@ function drawRect(card, target, id){
     .append('textPath')
       .attr('class', 'masterTextPath')
       .attr('href', '#master' + id)
-      .attr('startOffset', '-100%')
-      .text(card.text)
+      .attr('startOffset', '0%')
+      .text(cardText.join(' '))
   
   parent
     .append('text')
@@ -115,7 +118,7 @@ function drawRect(card, target, id){
     .attr('class', 'cardTitle')
     .attr('x', S.cardWidth / 2)
     .attr('y', S.cardHeight / 2)
-    .text(card.word) 
+    .text(cardName) 
 }
 
 function drawText(target){
