@@ -66,20 +66,37 @@ function animate(){
   console.log(tl)
 }
 
+// Function to generate cards
 function drawCards(contents, container){
+  console.log("Drawing cards") 
   let cardsDrawn = 0
+  
+  //If a theme is set, generate a list of words from that theme to be used
+  //This needs to be a copy so we don't manipulate the source data later
+  let themedWords = S.theme !== ""? [...contents[S.theme]] : []
+  
   for (let i in contents){
+    let cardName = ""
     if (cardsDrawn >= S.numberOfCards){
       break
     }
-    drawRect(i, contents[i], container, cardsDrawn)
+    //If there is a theme set, pass a word from the corresponding category
+    if (S.theme !== ""){
+      //Get a random element in the array, store it in cardname and delete from the array
+      cardName = themedWords.splice(Math.floor((Math.random() * themedWords.length)), 1)[0]
+    }
+    //else, pass a word from the card's own category
+    else {
+      cardName = i
+    }
+    drawCard(cardName, contents[i], container, cardsDrawn) 
     cardsDrawn ++
   }
 }
 
 //This function adds a path to our svg that we'll later use to animate text along
 // It takes card data, a parent element and a unique id
-function drawRect(cardName, cardText, target, id){
+function drawCard(cardName, cardText, target, id){
   parent = target.append('g')
   parent.attr('class', 'card')
   console.log(parent)
@@ -112,6 +129,7 @@ function drawRect(cardName, cardText, target, id){
       .attr('startOffset', '0%')
       .text(cardText.join(' '))
   
+  //Add a text for the word in the middle of the card
   parent
     .append('text')
     .attr('fill','#fff')
@@ -121,6 +139,7 @@ function drawRect(cardName, cardText, target, id){
     .text(cardName) 
 }
 
+//Add the text in the center of the viz
 function drawText(target){
   target.append('text')
     .attr('class','center-text')
