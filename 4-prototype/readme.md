@@ -6,7 +6,9 @@ I've created this fork so I can do fancy animations here and let the other viz r
 - Some refactoring: Artist can now edit settings in the settings file.
 
 
-## Choreography
+## Features
+
+### Done
 - There will be a text which contains all of the words in the categories
 - Each card will be composed of words within one category
 - One word withing the category will be displayed in the middle of the card at random
@@ -16,6 +18,7 @@ I've created this fork so I can do fancy animations here and let the other viz r
 - The number of cards should be changeable. 
 - One option should be to have the words in the middle of each card come from one category instead of the card's category. That way a category can be highlighted.
 
+### In Progress
 - One word per card at random should be bigger within the textpath and colored differently
 - The text on a card should keep flowing, even when theres no more space left. It can run continuously, this should be changeable.
 - The text in the middle should be changeable and will autoscale to fit the available width
