@@ -24,7 +24,7 @@ async function main(){
 
 //Takes wordData and starts a loop that rewrites the center text
 function reformulate(words){
-  const pattern = ["questions","sexuality","issues"]
+  const pattern = S.pattern || ["questions","sexuality","issues"]
   
   repeat()
   //A recursive function that uses d3 to rewrite the center text
@@ -99,7 +99,6 @@ function drawCards(contents, container){
 function drawCard(cardName, cardText, target, id){
   parent = target.append('g')
   parent.attr('class', 'card')
-  console.log(parent)
   
   const rectPath = d3.path()
   rectPath.rect(0,0, S.cardWidth, S.cardHeight)
