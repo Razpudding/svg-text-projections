@@ -1,0 +1,10 @@
+#invitation {
+	opacity: 0;
+	text-anchor: middle; 
+}
+
+.cardTitle {
+	text-anchor: middle;
+  fill: mediumpurple;
+  opacity: 0;
+}
