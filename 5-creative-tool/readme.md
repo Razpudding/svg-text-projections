@@ -21,4 +21,6 @@
 - Allow text to be added on each shape on click (or before dragging and dropping?)
 - Allow shapes to be swapped bij redragging them
 - Generate dropdowns for words
-- Create a sketch outlining all of this
+
+## Resources
+- [Drag, drop, snap with d3](https://bl.ocks.org/evanjmg/c2ffda2df9748e56425194eb5e6ea878)

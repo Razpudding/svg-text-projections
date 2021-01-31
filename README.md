@@ -31,6 +31,7 @@ Some experiments around text projections for an art project
 - [Experiment 2 - generative text](https://github.com/Razpudding/svg-text-projections/tree/master/2-generative-text) - [Live link](https://vizhub.com/Razpudding/3769e8974c3b4abcae1e5a26d94735f4)
 - [Experiment 3 - d3+greensock](https://github.com/Razpudding/svg-text-projections/tree/master/3-d3-greensock) - [Live link](https://vizhub.com/Razpudding/ac3f7015fe914b4c9d4b3bc8f4b16922?edit=files&file=index.js)
 - [Experiment 4 - prototype](https://github.com/Razpudding/svg-text-projections/tree/master/4-prototype) - [Live link](https://vizhub.com/Razpudding/ac3f7015fe914b4c9d4b3bc8f4b16922?edit=files&file=index.js)
+- [Experiment 5 - creative-tool](https://github.com/Razpudding/svg-text-projections/tree/master/5-creative-tool)
 
 ## Options for Artist
 - Create and orient texts yourself, static, 2D -> Illustrator
